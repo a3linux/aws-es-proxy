@@ -1,0 +1,7 @@
+[Unit]
+Description=AWS ES Proxy Service 
+[Service]
+User=core
+ExecStart=/usr/bin/docker run --rm -v /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt -/var/log:/var/log --env 'AWS_ES_PROXY_PORT=:9200' --env 'AWS_ES_PROXY_ENDPOINT=https://es-endpoint' docker.io/a3linux/aws-es-proxy
+[Install]
+WantedBy=multi-user.target
